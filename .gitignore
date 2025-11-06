@@ -6,3 +6,6 @@ tools/
 plugin/
 data/
 .idea/
+.env
+*.env
+app/mcp_tool_use/.env
