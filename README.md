@@ -78,9 +78,6 @@ Open MCP Marketplace is an open source project aims to make MCP Servers integrat
 | Browser Usage | Playwright, Puppeteer, etc. |  [Demo](https://agent.deepnlp.org/agent/mcp_tool_use?server=puppeteer/puppeteer) [MCP]()  |
 | Chart,Graph,Image | everart,mcp-server-charts(AntV),canva-mcp |  [Demo](https://agent.deepnlp.org/agent/mcp_tool_use/share/93d94694-e673-49d3-b805-820c4ef842bd) [MCP]() |
 
->>>>>>> d518aac651d06be0f3009778fe9a9748338802f1
-
-
 **Example: Route Planning using Google Map MCP**
 ```
 q=Find the best route from JFK Airport to Times Square in New York
