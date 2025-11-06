@@ -1,0 +1,8 @@
+*.DS_Store
+.DS_Store
+app/ai_search
+app/mcp_marketplace_explorer
+tools/
+plugin/
+data/
+.idea/
