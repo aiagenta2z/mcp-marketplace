@@ -13,8 +13,7 @@ Visit the website [MCP Tool Use Agent App](https://agent.deepnlp.org/agent/mcp_t
 <img src="https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/docs/mcp_marketplace_intro.png" alt="mcp marketplace" width="300" style="object-fit: contain;">
 
 **[MCP Tool Use Agent App](https://agent.deepnlp.org/agent/mcp_tool_use)**<br>
-<img src="https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/app/mcp_tool_use/docs/demo_plot_chart.jpg" alt="mcp tool use agent" width="300" style="object-fit: contain;">
-
+<img src="https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/python/src/mcp_marketplace/app/mcp_tool_use/docs/demo_plot_chart.jpg" alt="mcp tool use agent" width="300" style="object-fit: contain;">
 
 ## Basic
 
@@ -53,7 +52,7 @@ Open MCP Marketplace is an open source project aims to make MCP Servers integrat
 ```
 q=Find the best route from JFK Airport to Times Square in New York
 ```
-![Route Planning](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/app/mcp_tool_use/docs/route_planning_mcp_v2.jpg)
+![Route Planning](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/python/src/mcp_marketplace/app/mcp_tool_use/docs/route_planning_mcp_v2.jpg)
 
 
 **Example: Office Agent Excel Spreadsheet and Powerpoint Creation Usage**
@@ -61,7 +60,7 @@ q=Find the best route from JFK Airport to Times Square in New York
 q=Write below information to an excel spreadsheet. Derek: male, graduated in years 2019, IT department, Jenifer: female graduated in 2024 Sales and Marketing department, Alan: male, graduated in 2021 in R&D department, Paul: mail, graduated in 2015, Staff in Operations department. Please formalize the data into three columns: name, graduation year and department. Then use spreadsheet formula to calculate the percentage of employees graduated within 3 years.
 ```
 
-![Excel Agent](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/app/mcp_tool_use/docs/office_excel_use_agent.jpg)
+![Excel Agent](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/python/src/mcp_marketplace/app/mcp_tool_use/docs/office_excel_use_agent.jpg)
 
 [Excel Spreadsheet and Powerpoint Office Agent](https://agent.deepnlp.org/agent/mcp_tool_use/share/36f34bd2-5527-40b7-9365-5f0c33fd5e22)
 
@@ -71,7 +70,7 @@ q=Write below information to an excel spreadsheet. Derek: male, graduated in yea
 ```
 q=Plot a pie chart showing 25% of employees graduated within 3 years and 75% graduated more than 3 years ago.
 ```
-![Chart Plotting](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/app/mcp_tool_use/docs/demo_plot_chart.jpg)
+![Chart Plotting](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/python/src/mcp_marketplace/app/mcp_tool_use/docs/demo_plot_chart.jpg)
 
 [Excel Spreadsheet and Powerpoint Office Agent](https://agent.deepnlp.org/agent/mcp_tool_use/share/93d94694-e673-49d3-b805-820c4ef842bd)
 
@@ -85,7 +84,7 @@ Visit [MCP Tool Use App](https://github.com/aiagenta2z/mcp-marketplace/tree/main
 
 Visit [MCP Tool Use App](https://github.com/aiagenta2z/mcp-marketplace/tree/main/app/mcp_tool_use)
 
-![MCP Marketplace Tool Use](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/app/mcp_tool_use/docs/marketplace_mcp_admin.jpg?raw=true)
+![MCP Marketplace Tool Use](https://raw.githubusercontent.com/aiagenta2z/mcp-marketplace/refs/heads/main/python/src/mcp_marketplace/app/mcp_tool_use/docs/marketplace_mcp_admin.jpg?raw=true)
 
 
 ## KEY Features
