@@ -114,7 +114,6 @@ Dataset Collection of MCP Servers Tool/Function Call Schemas from 5000+ MCP serv
 - **Lightweight MCP Client**: Start the MCP Client just like cursor/Claude Desktop. (npx/python)
 - **Benchmarking** : Support Rest APIs to run tool/call (Google-maps/perplexity/Deep Search Web clients,etc)
 
-
 ## 1. MCP Server Public Index of Tools Schema and <code>mcp.config</code> file
 
 See [MCP Tool Schema](./tools/README.md) for details. 
@@ -148,6 +147,12 @@ MCP Marketplace Browse and Pagination of MCP Servers [Demo](https://agent.deepnl
 For official documentation of MCP Marketplace API, please check https://www.deepnlp.org/doc/mcp_marketplace
 , [Python SDK](./python/README.md) and [Typescript SDK (WIP)]()
 
+**Installation**
+
+```
+pip install mcp-marketplace
+
+```
 **Usage**
 
 #### Search MCP Server 
@@ -237,6 +242,7 @@ curl https://www.deepnlp.org/api/mcp_marketplace/v1/tools/google-maps/google-map
 
 #### List MCP Config files
 
+
 **API**
 
 ```
@@ -246,7 +252,7 @@ GET /api/mcp_marketplace/v1/server/${owner_id}/${repo_name}
 
 ## Resources
 
-### Badge
+### Badage
 
 Put Badge on your homepage markdown to track MCP Servers User Reviews and Ratings, such as [![MCP Marketplace User Review Rating Badge](https://www.deepnlp.org/api/marketplace/svg?name=google-maps/google-maps)](https://www.deepnlp.org/store/ai-agent/mcp-server/pub-google-maps/google-maps). 
 
@@ -387,6 +393,7 @@ Result
 
 
 ## Contribution
+
 
 ## Resources
 
