@@ -1,11 +1,14 @@
 *.DS_Store
 .DS_Store
-app/ai_search
-app/mcp_marketplace_explorer
+python/src/mcp_marketplace/app/ai_search
+python/src/mcp_marketplace/app/mcp_marketplace_explorer
 tools/
 plugin/
 data/
 .idea/
 .env
 *.env
-app/mcp_tool_use/.env
+python/src/mcp_marketplace/app/mcp_tool_use/.env
+*__pycache__/
+*.egg-info/
+*dist/

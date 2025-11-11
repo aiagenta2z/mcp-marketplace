@@ -1,0 +1,73 @@
+[build-system]
+# Specify setuptools as the build backend, which handles the package creation.
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-marketplace"
+version = "0.1.2"
+description = "Open MCP Marketplace, MCP Registry, MCP client, OneKey MCP Router, MCP Tool Search of commercial MCPs"
+readme = "README.md"
+authors = [
+    {name = "deepnlp.org"},
+    {email = "aihubadmin@126.com"}
+]
+requires-python = ">=3.11"
+
+# 3. Core Dependencies (Always installed)
+dependencies = [
+    "requests>=2.28.1",
+    "logging>=0.0.1",
+    'click>=8.0.3',
+]
+
+# 4. Optional Dependencies (Extras)
+[project.optional-dependencies]
+mcp_tool_use = [
+    "python-dotenv>=1.0.1",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.29.0",
+    "pydantic>=2.7.0",
+    "asyncio>=3.4.3",
+    "openai>=1.0.0",
+    "anthropic>=0.25.0",
+    "mcp>=1.20.0",
+    "mcp-marketplace>=0.0.4",
+    "uuid>=1.30",
+    "python-dotenv>=1.0.1",
+    "httpx>=0.27.0",
+    "aiofiles>=23.2.1",
+    "anthropic>=0.25.0",
+    "Jinja2>=3.1.3"
+]
+onekey_mcp_router=[
+]
+# Define 'all' extra recursively, which simplifies installation for users
+all = [
+    "mcp-marketplace[mcp_tool_use]",
+    "mcp-marketplace[onekey_mcp_router]"
+]
+
+# 5. Console Scripts (Entry Point)
+[project.scripts]
+# Defines the command 'mcpm' that calls the 'cli' function in the 'mcp_marketplace.cli' module
+mcpm = "mcp_marketplace.cli:cli"
+
+# 6. Setuptools Configuration for the 'src' Layout
+[tool.setuptools.packages.find]
+# This tells Setuptools to look for packages inside the 'src' directory.
+where = ["src"]
+exclude = ["tests*"
+    , "src/*.egg-info"
+    , "src/**/*.env"
+    , "AGENT.md"
+    , "src/**/*.sh"
+    , "src/mcp_marketplace/mcp_tool_use/docs*"]
+
+[tool.setuptools.package-data]
+where = ["src/mcp_marketplace"]
+"*" = ["**/*.html", "**/*.css", "**/*.js", "**/*.ico", "**/*.jgp", "**/*.png", "**/*.webpp", "**/*.png", "**/*.svg", "**/*.json"]
+
+[project.urls]
+Homepage = "https://www.deepnlp.org/store/ai-agent/mcp-server"
+Repository = "https://github.com/aiagenta2z/mcp-marketplace"

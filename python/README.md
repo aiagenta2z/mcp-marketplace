@@ -2,18 +2,125 @@
 
 MCP Marketplace Python Package is a common interface to give you access to public MCP Servers, Tools, Configurations. It supports various API endpoint (such as pulsemcp.com, deepnlp.org, etc).
 
-[PyPI](https://www.pypi.org/project/mcp-marketplace)|[Document](http://www.deepnlp.org/doc/mcp_marketplace)|[MCP Marketplace](http://www.deepnlp.org/store/ai-agent/mcp-server)|[AI Agent Search](http://www.deepnlp.org/search/agent)
+[PyPI](https://www.pypi.org/project/mcp-marketplace)|[Document](http://www.deepnlp.org/doc/mcp_marketplace)|[MCP Marketplace](http://www.deepnlp.org/store/ai-agent/mcp-server)|[AI Agent Search](http://www.deepnlp.org/search/agent)|[MCP Router Ranking List](https://www.deepnlp.org/agent/rankings)
 
 ### Features
 
+0. A Lightweight MCP Client (Like Cursor,Claude) and CLI `mcpm` for personal use and benchmarking tools/LLMs
 1. Search API of MCP Tools: Users can search MCP Servers Meta Info and tools fit for mcp.json by query, such as "map", "payment", "browser use"
 2. List MCP Tools API: And Allow LLM and AI Apps to Find Your MCP Server
 3. Load MCP Config: Get latest mcp_config.json files
 4. Development Customized API and Endpoint to Support Your Local MCP Marketplace API or Services
 5. Registry: Allow Users to register the MCP Marketplace create, delete, update their MCP servers through various endpoints. (WIP)
 
+### 0. Start MCP Client using `mcpm` CLI tool for Personal Use or Benchmark Purposes
 
-### Python API
+**Installation**
+
+You can install the command line `mcpm` tool from mcp-marketplace pypi package, and start a MCP Client using local 
+`mcp_config.json` file
+
+```
+## Basic Usage MCP Index and Search
+pip install mcp-marketplace
+
+## MCPClient Supports User Defined mcp_config.json, Just Like Other Clients Cursor/Claude
+pip install 'mcp-marketplace[mcp_tool_use]'
+
+```
+
+Install From GitHub Source
+```angular2html
+git clone https://github.com/aiagenta2z/mcp-marketplace
+cd mcp-marketplace/python
+pip install -e .
+
+## Missing Dependency, Please report to use via issues
+```
+
+The CLI 'mcpm' will be in python path
+
+``` 
+mcpm run
+mcpm run --host 0.0.0.0 --port 5000
+
+## Use Local Config File, Go To GitHub Get the config https://github.com/aiagenta2z/mcp-marketplace
+
+cd python/tests
+
+mcpm run --port 5000 --config "./mcp_config_onekey.json"
+
+mcpm run --port 5000 --config "./mcp_config.json"
+
+```
+
+Visit http://0.0.0.0:5000 for ChatUI
+![Demo MCP Client UI](../docs/mcpm_mcp_client_ui.png)
+
+Visit http://0.0.0.0:5000/mcp for mcp management
+
+![Demo MCP Client Admin Console](../docs/mcpm_mcp_client_start.png)
+
+
+#### Benchmark
+
+You can also run various MCP benchmark using the rest API From the Client
+
+| API | Description                                                                      |
+| ---- |----------------------------------------------------------------------------------|
+| /api/query | The endpoint which you can post the tool parameters to get the tool/call results |
+
+
+**CURL Tests**
+
+Once you started the service and run the target mcp server, you can run the tools calls through the REST API.
+
+Let's say you want to post to server: <code>puppeteer</code> and test tools: <code>puppeteer_navigate</code> to navigate chrome to a webpage.
+
+Endpoint: http://127.0.0.1:5000/api/query
+
+```
+
+curl -X POST -H "Content-Type: application/json" -d '{
+    "server_id": "puppeteer",
+    "tool_name": "puppeteer_navigate",
+    "tool_input": {
+        "url": "https://arxiv.org/list/cs/new"
+    }
+}' http://127.0.0.1:5000/api/query
+
+```
+
+Result 
+```
+{"success":true,"data":["Navigated to https://arxiv.org/list/cs/new"],"error":null}%
+```
+
+
+**REST GET/POST Request By Python/Typescript/etc**
+
+For example, post request to MCP: amap-amap-sse, Tool: Get Weather and get local weather. You need to start mcp server 'amap-amap-sse' before running command line.
+
+cd ./tests
+
+```
+python run_mcp_request.py
+
+## define input_params
+        input_params = {
+            "server_id": "amap-amap-sse", 
+            "tool_name": 'maps_weather',
+            "tool_input": {
+                "city": "乌鲁木齐"
+            }
+        }
+
+```
+
+Result
+```
+{'success': True, 'data': ['{"city":"乌鲁木齐市","forecasts":[{"date":"2025-06-30","week":"1","dayweather":"多云","nightweather":"多云","daytemp":"31","nighttemp":"20","daywind":"西北","nightwind":"西北","daypower":"1-3","nightpower":"1-3","daytemp_float":"31.0","nighttemp_float":"20.0"},{"date":"2025-07-01","week":"2","dayweather":"多云","nightweather":"多云","daytemp":"28","nighttemp":"20","daywind":"西北","nightwind":"西北","daypower":"1-3","nightpower":"1-3","daytemp_float":"28.0","nighttemp_float":"20.0"},{"date":"2025-07-02","week":"3","dayweather":"多云","nightweather":"多云","daytemp":"28","nighttemp":"20","daywind":"西北","nightwind":"西北","daypower":"1-3","nightpower":"1-3","daytemp_float":"28.0","nighttemp_float":"20.0"},{"date":"2025-07-03","week":"4","dayweather":"多云","nightweather":"晴","daytemp":"30","nighttemp":"21","daywind":"西北","nightwind":"西北","daypower":"1-3","nightpower":"1-3","daytemp_float":"30.0","nighttemp_float":"21.0"}]}'], 'error': None}
+```
 
 ### Install
 
@@ -21,6 +128,13 @@ MCP Marketplace Python Package is a common interface to give you access to publi
 pip install mcp-marketplace
 
 ```
+
+Dependency 
+
+```
+pip install uvicorn mcp fastapi pydantic dotenv asyncio httpx mcp_marketplace uuid aiofiles logger anthropic jinja2
+```
+
 
 ### 1. Search API of MCP Tools
 

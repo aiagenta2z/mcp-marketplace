@@ -1,0 +1,13 @@
+{
+    "mcpServers":{
+        "deepnlp-onekey-google-maps": {
+            "url": "https://agent.deepnlp.org/mcp?server_name=google-maps&onekey=BETA_TEST_KEY_OCT_2025"
+        },
+        "deepnlp-onekey-amap-maps": {
+            "url": "https://agent.deepnlp.org/mcp?server_name=amap-maps-streamableHTTP&onekey=BETA_TEST_KEY_OCT_2025"
+        },
+        "deepnlp-onekey-baidu-maps": {
+            "url": "https://agent.deepnlp.org/mcp?server_name=baidu-maps-sse&onekey=BETA_TEST_KEY_OCT_2025"
+        }
+    }
+}
