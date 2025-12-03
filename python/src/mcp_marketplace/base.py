@@ -242,3 +242,4 @@ class Client:
         if response.status_code == 204:
             return {"status": "success", "message": "Resource deleted successfully"}
         return response.json()
+

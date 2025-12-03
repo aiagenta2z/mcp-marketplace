@@ -1,7 +1,9 @@
 *.DS_Store
 .DS_Store
+python/package.sh
 python/src/mcp_marketplace/app/ai_search
 python/src/mcp_marketplace/app/mcp_marketplace_explorer
+python/dist
 tools/
 plugin/
 data/

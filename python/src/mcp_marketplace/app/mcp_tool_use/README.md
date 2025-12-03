@@ -55,7 +55,7 @@ To Get MCP Configs and Tools Please Visit MCP Marketplace at: https://www.deepnl
 
 **Install Requirements**
 ```
-pip install fastapi pydantic dotenv asyncio httpx mcp_marketplace uuid uvicorn
+pip install python-dotenv fastapi uvicorn[standard] asyncio openai anthropic mcp mcp-marketplace uuid httpx aiofiles anthropic Jinja2
 ```
 or 
 ```

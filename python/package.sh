@@ -4,6 +4,11 @@ pip install -e .
 pip install mcp-marketplace[mcp_tool_use] -e .
 
 
+
+#### Install MCP Marketplace
+
+pip install -e .
+
 ### Package
 
 
@@ -18,11 +23,11 @@ twine upload --repository testpypi dist/* --verbose
 ## Official
 twine upload --repository pypi dist/* --verbose
 
-
 ### Search
-
 pip install setuptools wheel twine
 
 python setup.py sdist bdist_wheel
 
 twine upload dist/*
+
+

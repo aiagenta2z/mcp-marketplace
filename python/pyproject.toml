@@ -4,9 +4,10 @@ requires = ["setuptools>=61.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mcp-marketplace"
-version = "0.1.2"
-description = "Open MCP Marketplace, MCP Registry, MCP client, OneKey MCP Router, MCP Tool Search of commercial MCPs"
+# name = "mcp-marketplace"
+name="onekey_mcp"
+version = "0.1.4"
+description = "Open MCP Marketplace, Official OneKeyMCP Router Connection, MCP Registry, MCP client, OneKey MCP Router, MCP Tool Search of commercial MCPs"
 readme = "README.md"
 authors = [
     {name = "deepnlp.org"},
@@ -38,8 +39,17 @@ mcp_tool_use = [
     "httpx>=0.27.0",
     "aiofiles>=23.2.1",
     "anthropic>=0.25.0",
-    "Jinja2>=3.1.3"
+    "Jinja2>=3.1.3",
+    "matplotlib>=3.10.0",
+    "logger>=1.4",
+    "func_timeout>=4.3.0",
+    "pytz>=2025.2",
+    "gensim>=4.4.0",
+    "scikit-learn>=1.7.2",
+    "bs4>=0.0.2",
+    "redis>=7.0.0"
 ]
+
 onekey_mcp_router=[
 ]
 # Define 'all' extra recursively, which simplifies installation for users
@@ -71,3 +81,5 @@ where = ["src/mcp_marketplace"]
 [project.urls]
 Homepage = "https://www.deepnlp.org/store/ai-agent/mcp-server"
 Repository = "https://github.com/aiagenta2z/mcp-marketplace"
+Documentation = "https://deepnlp.org/doc/onekey_mcp_router"
+
