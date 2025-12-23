@@ -37,8 +37,6 @@ def run_api_methods():
     ### create
     run_setup_config_pulsemcp()
 
-
-
 def run_mcp_router_api_example():
     """
         # 1. This Function Connects to Google-Maps MCPs and run maps_direction from 'Boston' to 'New York'
