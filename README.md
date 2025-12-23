@@ -32,6 +32,7 @@ Open MCP Marketplace is an open source project aims to make MCP Servers integrat
 
 ## News
 
+- **Multi-Agent Parallel Running**: Parallel Running Multi Agents is alive, You can call 3-5 trip/planning, deep research agents at the same time.
 - **CLI `mcpm`**: Command Line tool to start a python based MCP Client from your mcp_config.json, like cursor/Claude. Useful for MCP Benchmarking which provides rest APIs endpoint.
 - **OneKey MCP Router**: Use OneKey to Access commercial MCPs. Visit [OneKey MCP Router](https://github.com/aiagenta2z/OneKey-MCP-Router) for details.
 - **Upgraded: Office File Agent and Visualization Agent**: Excel spreadsheet data writing and data analysis agent, Powerpoint generation, Charts Creation. [Excel Spreadsheet Agent](https://agent.deepnlp.org/agent/mcp_tool_use?server=haris-musa/excel-mcp-server), [Visualization Agent](https://agent.deepnlp.org/agent/mcp_tool_use?server=antvis/mcp-server-chart)
@@ -40,13 +41,14 @@ Open MCP Marketplace is an open source project aims to make MCP Servers integrat
 
 ## Example MCP Usage by Categories
 
-| Domain | Related MCP Server|  Demo |
-| ---- | ---- |  ----  |
-| Office File Agent |  Excel Spreadsheet, Powerpoint, PDF, etc | [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/ee640008-6bc1-4c3a-832b-2557f985b540) [MCP]() |
-| AI Search/Deep Research | Bing/Google Custom/Perplexity/Tavily/Firecrawl |  [Demo](https://agent.deepnlp.org/agent/mcp_tool_use?server=tavily-ai/tavily-mcp) [MCP]() |
-| Map Trip Planning | GoogleMap, Amap(Gaode), BaiduMap, etc. | [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/8ab0b25c-b72d-4cae-9c86-a852df8c6541)  [MCP](https://agent.deepnlp.org/agent/mcp_tool_use?server=amap-mcp/amap-mcp-%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-mcp) [Use MCP]() |
-| Browser Usage | Playwright, Puppeteer, etc. |  [Demo](https://agent.deepnlp.org/agent/mcp_tool_use?server=puppeteer/puppeteer) [MCP]()  |
-| Chart,Graph,Image | everart,mcp-server-charts(AntV),canva-mcp,bing-image-search-mcp |  [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/1a6101e0-9afa-47c4-828c-f3d373dc96f1) [MCP]() |
+| Domain | Related MCP Server                                              | Demo                                                                                                                                                                                                                                  |
+| ---- |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Office File Agent | Excel Spreadsheet, Powerpoint, PDF, etc                         | [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/ee640008-6bc1-4c3a-832b-2557f985b540) [MCP]()                                                                                                                            |
+| AI Search/Deep Research | Bing/Google Custom/Perplexity/Tavily/Firecrawl                  | [Demo](https://agent.deepnlp.org/agent/mcp_tool_use?server=tavily-ai/tavily-mcp) [MCP]()                                                                                                                                              |
+| Map Trip Planning | GoogleMap, Amap(Gaode), BaiduMap, etc.                          | [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/8ab0b25c-b72d-4cae-9c86-a852df8c6541)  [MCP](https://agent.deepnlp.org/agent/mcp_tool_use?server=amap-mcp/amap-mcp-%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-mcp) [Use MCP]() |
+| Browser Usage | Playwright, Puppeteer, etc.                                     | [Demo](https://agent.deepnlp.org/agent/mcp_tool_use?server=puppeteer/puppeteer) [MCP]()                                                                                                                                               |
+| Chart,Graph,Image | everart,mcp-server-charts(AntV),canva-mcp,bing-image-search-mcp | [Example](https://agent.deepnlp.org/agent/mcp_tool_use/share/1a6101e0-9afa-47c4-828c-f3d373dc96f1) [MCP]()                                                                                                                            |
+| Multi-Agent Parallel | DeepSearch/Trip Planning                                        | [Example](https://agent.deepnlp.org)                                                                                                                                                                                                                           |
 
 **Example: Route Planning using Google Map MCP**
 ```
