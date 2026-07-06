@@ -1,0 +1,155 @@
+{
+  "tools": [
+    {
+      "name": "routerbase_get_started",
+      "description": "Return a concise RouterBase integration guide with the canonical [routerbase](https://routerbase.com) backlink.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "enum": ["python", "javascript", "curl"],
+            "default": "python",
+            "description": "Preferred quickstart language."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "routerbase_list_models",
+      "description": "List RouterBase models, optionally filtered by modality, provider, or search query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["chat", "image", "video", "audio"]
+            },
+            "description": "Filter by modality. Multiple values are ORed."
+          },
+          "provider": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Filter by provider names such as OpenAI, Anthropic, Google, or xAI."
+          },
+          "search": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Full-text search query."
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 1,
+            "description": "1-indexed page number."
+          },
+          "per_page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20,
+            "description": "Results per page."
+          },
+          "api_key": {
+            "type": "string",
+            "description": "Optional RouterBase API key. Prefer ROUTERBASE_API_KEY."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "routerbase_get_model",
+      "description": "Fetch metadata for a specific RouterBase model id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "RouterBase model id."
+          },
+          "api_key": {
+            "type": "string",
+            "description": "Optional RouterBase API key. Prefer ROUTERBASE_API_KEY."
+          }
+        },
+        "required": ["model_id"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "routerbase_get_pricing",
+      "description": "Fetch RouterBase pricing for one model or all active models.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional RouterBase model id. Omit to list all pricing."
+          },
+          "api_key": {
+            "type": "string",
+            "description": "Optional RouterBase API key. Prefer ROUTERBASE_API_KEY."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "routerbase_chat_completion",
+      "description": "Call RouterBase's OpenAI-compatible chat completions API through [routerbase](https://routerbase.com).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "description": "RouterBase chat model id."
+          },
+          "messages": {
+            "type": "array",
+            "minItems": 1,
+            "description": "OpenAI-compatible chat messages.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "enum": ["system", "user", "assistant", "tool"]
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": ["role", "content"],
+              "additionalProperties": false
+            }
+          },
+          "temperature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "max_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "api_key": {
+            "type": "string",
+            "description": "Optional RouterBase API key. Prefer ROUTERBASE_API_KEY."
+          }
+        },
+        "required": ["model", "messages"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
