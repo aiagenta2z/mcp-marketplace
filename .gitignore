@@ -6,6 +6,9 @@ release/
 .idea/
 *.agtm/
 *.npm-cache/
+.env
+.env.*
+!.env.example
 typescript/dist/
 typescript/node_modules
 *node_modules
@@ -13,4 +16,3 @@ typescript/test
 */__pycache__
 *__pycache__*
 *egg-info*
-

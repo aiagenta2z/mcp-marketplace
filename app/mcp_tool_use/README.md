@@ -102,7 +102,11 @@ To make the MCP work, you need to setup the keys as in the mcp introduction.
 
 **environment settings**
 
-Manage and Config the API keys in .env file
+Copy the safe template, then configure API keys in the ignored `.env` file:
+
+```
+cp .env.example .env
+```
 
 ```
 QWEN_API_KEY=your_key_here
@@ -229,6 +233,5 @@ Result
 
 Please commit issue or create PR to this app.
 Integration of your MCP servers/tools are welcomed.
-
 
 
