@@ -1,0 +1,96 @@
+{
+  "tools": [
+    {
+      "name": "list_agents",
+      "description": "List agents available in the connected SandBase managed-agents runtime.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "create_session",
+      "description": "Create a SandBase managed-agents session for an agent.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "agent": {
+            "type": "string",
+            "description": "Agent id, for example agent_assistant"
+          },
+          "environment_id": {
+            "type": "string",
+            "description": "Optional environment id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Optional session title"
+          }
+        },
+        "required": ["agent"]
+      }
+    },
+    {
+      "name": "run_session",
+      "description": "Send a message to a session and wait until its streamed turn becomes idle.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Session id"
+          },
+          "message": {
+            "type": "string",
+            "description": "User message to run",
+            "minLength": 1
+          }
+        },
+        "required": ["session_id", "message"]
+      }
+    },
+    {
+      "name": "get_session",
+      "description": "Get the current state and usage of a managed-agents session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Session id"
+          }
+        },
+        "required": ["session_id"]
+      }
+    },
+    {
+      "name": "list_artifacts",
+      "description": "List artifacts produced by a managed-agents session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Session id"
+          }
+        },
+        "required": ["session_id"]
+      }
+    },
+    {
+      "name": "stop_session",
+      "description": "Stop a running managed-agents session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Session id"
+          }
+        },
+        "required": ["session_id"]
+      }
+    }
+  ]
+}
