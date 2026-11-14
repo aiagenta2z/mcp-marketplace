@@ -1,0 +1,363 @@
+{
+  "tools": [
+    {
+      "name": "find_local_businesses",
+      "description": "Returns the businesses Google Maps lists for a search in a place: name, address, phone, website, rating, reviews, category and coordinates. One page of up to 20 places per call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "What to look for, e.g. dentist."
+          },
+          "location": {
+            "type": "string",
+            "description": "Where, as plain text, e.g. Tallinn, Estonia."
+          },
+          "country": {
+            "type": "string",
+            "description": "Optional two-letter country code."
+          },
+          "language": {
+            "type": "string",
+            "description": "Optional two-letter language code."
+          },
+          "max_results": {
+            "type": "integer",
+            "description": "Optional, 1-20, default 20."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "query",
+          "location"
+        ]
+      }
+    },
+    {
+      "name": "google_search",
+      "description": "Returns Google results as rows: web, news or shopping. One query answers at once; several queries (up to 100) start a job.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Search phrases, 1-100."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "web",
+              "news",
+              "shopping"
+            ],
+            "description": "web (default), news or shopping."
+          },
+          "country": {
+            "type": "string",
+            "description": "Optional two-letter country code."
+          },
+          "language": {
+            "type": "string",
+            "description": "Optional two-letter language code."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      }
+    },
+    {
+      "name": "search_amazon",
+      "description": "Returns the products Amazon lists for a search phrase: title, ASIN, price, rating, reviews, image and link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Search phrases, 1-100."
+          },
+          "marketplace": {
+            "type": "string",
+            "description": "Optional Amazon marketplace ending, e.g. com (default), co.uk, de."
+          },
+          "pages": {
+            "type": "integer",
+            "description": "Optional result pages per phrase, 1-5."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      }
+    },
+    {
+      "name": "get_amazon_product",
+      "description": "Returns the data of Amazon product pages: title, brand, price, rating, images, features, variants, ranks and details. Optionally also every seller's offer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "asins_or_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "ASINs or Amazon product addresses, 1-500."
+          },
+          "marketplace": {
+            "type": "string",
+            "description": "Optional Amazon marketplace ending for ASINs."
+          },
+          "include_offers": {
+            "type": "boolean",
+            "description": "Optional. true = also read each product's offer listing."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "asins_or_urls"
+        ]
+      }
+    },
+    {
+      "name": "amazon_seller_leads",
+      "description": "Builds a lead list of Amazon sellers for a search phrase, with the business contact details each seller published on Amazon. Runs as a job.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Search phrase in the marketplace language."
+          },
+          "marketplace": {
+            "type": "string",
+            "description": "Optional Amazon marketplace ending."
+          },
+          "max_products": {
+            "type": "integer",
+            "description": "Optional, 1-500, default 20."
+          },
+          "max_sellers": {
+            "type": "integer",
+            "description": "Optional, 1-500, default 50."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "keyword"
+        ]
+      }
+    },
+    {
+      "name": "idealo_offers",
+      "description": "Returns the shop offers idealo lists for a product: shop, price, shipping, total, delivery, rating and link for the 20 cheapest offers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eans_or_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "EAN/GTIN codes or idealo product page addresses, 1-1000."
+          },
+          "market": {
+            "type": "string",
+            "enum": [
+              "de",
+              "at",
+              "fr",
+              "it",
+              "es",
+              "uk"
+            ],
+            "description": "Optional idealo market for EAN codes."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "eans_or_urls"
+        ]
+      }
+    },
+    {
+      "name": "google_trends",
+      "description": "Returns the Google Trends interest-over-time series (0-100) for one phrase.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The phrase."
+          },
+          "geo": {
+            "type": "string",
+            "description": "Optional ISO country code such as US or EE; omit for worldwide."
+          },
+          "date": {
+            "type": "string",
+            "description": "Optional range, e.g. today 12-m (default), today 5-y, all."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "fetch_page",
+      "description": "Fetches one public web page through a real browser and returns its readable text (default) or HTML.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The page address, http:// or https://."
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "text",
+              "html"
+            ],
+            "description": "text (default) or html."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "get_product_data",
+      "description": "Returns the product data a shop publishes on its product pages: name, price, currency, availability, brand, SKU, GTIN/EAN, images, description and rating. All addresses must belong to one shop.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Product page addresses of ONE shop, 1-100."
+          },
+          "quote_only": {
+            "type": "boolean",
+            "description": "Optional. true = answer only the price and wallet balance; nothing is charged."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "description": "Optional idempotency key (max 64 chars); a retry with the same key is answered and charged once."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "name": "clean_product_data",
+      "description": "Cleans product rows you already have (free): price in EUR, price per unit, trimming and de-duplication.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "1-1000 row objects."
+          },
+          "to_eur": {
+            "type": "object",
+            "description": "Optional preset: add the price in EUR."
+          },
+          "unit_price": {
+            "type": "object",
+            "description": "Optional preset: add the price per unit."
+          },
+          "dedupe_by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional columns identifying a row; first row kept."
+          },
+          "trim": {
+            "type": "boolean",
+            "description": "Optional, default true."
+          }
+        },
+        "required": [
+          "rows"
+        ]
+      }
+    }
+  ]
+}
